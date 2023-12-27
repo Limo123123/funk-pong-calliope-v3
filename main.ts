@@ -1,3 +1,20 @@
+radio.onDataPacketReceived(function () {
+    let value = 0
+    if (value == 137) {
+        status = 2
+    } else if (value == 11) {
+        y = -2
+        richtung_y = -1
+        status = 1
+    } else {
+        let name = ""
+        x = parseInt(name)
+        richtung_x = value
+        y = -1
+        richtung_y = 1
+        status = 1
+    }
+})
 input.onButtonPressed(Button.A, function () {
     if (balken_x > 0) {
         balken_x += -1
@@ -21,10 +38,10 @@ input.onButtonPressed(Button.B, function () {
         led.plot(balken_x + 1, 4)
     }
 })
-let y = 0
+let balken_x = 0
 let richtung_x = 0
 let richtung_y = 0
-let balken_x = 0
+let y = 0
 let status = 0
 let x = 0
 status = 0
